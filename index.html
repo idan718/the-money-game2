@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The money game</title>
+</head>
+<body>
+    <div id="loginDiv"> <!--makes the log in div -->
+        <div>
+            <h1 id="loginDivTitle">Welcome back</h1> <!--the title of the log in div-->
+            <div id="loginDivInput"> <!--makes the log in div inputs-->
+                <input type="text" id="inputName" placeholder="Enter username">
+                <div id="passwordDiv">
+                    <input type="password" id="inputPassword" placeholder="Enter password">
+                    <button id="passwordButton">
+                        <img src="הורדה.png" >
+                    </button>
+                </div>
+            </div>
+            <div id="loginDivButton"> <!--makes the log in div buttons-->
+                <button id="loadButton">sign in</button>
+                <button id="askButton">sign up</button>
+            </div>
+        </div>
+    </div> <!--end the log in div-->
+    <div id="saveDiv"> <!--makes the sign up div-->
+        <div>
+            <h1 id="saveDivTitle">Sign up</h1> <!--makes the title of the sign up div-->
+            <div id="saveDivInput"> <!--makes the div of the sign up div inputs-->
+                <input type="text" id="inputName2" placeholder="Enter name">
+                <div id="passwordDiv2"> <!--makes the password div-->
+                    <input type="password" id="inputPassword2" placeholder="Enter password">
+                    <button id="passwordButton2">
+                        <img src="הורדה.png" alt="">
+                    </button>
+                </div>
+            </div>
+            <div id="saveDivButton"> <!--makes the div of the sign up div buttons-->
+                <button id="saveButton">Sign up</button>
+                <button id="returnButton">return</button>
+            </div>
+        </div>
+    </div> <!--ends the sign up div-->
+    <div id="menuDivButton">
+        <button id="menuButton3">
+            <h1>menu</h1>
+        </button>
+    </div>
+    <div id="menuDiv">
+        <div>
+            <button class="menuButton" id="exitMenu">
+                <h1>Exit menu</h1>
+            </button>
+        </div>
+        <div>
+            <button class="menuButton" id="settingButton">
+                <h1>Settings</h1>
+            </button>
+        </div>
+        <div>
+            <button id="aboutButton" class="menuButton">
+                <h1>About</h1>
+            </button>
+        </div>
+        <div>
+            <button class="menuButton" id="logout">
+                <h1>log out</h1>
+            </button>
+        </div>
+    </div>
+    <div id="settingDiv">
+        <div>
+            <div>
+                <button id="exitSetting" class="settingsButton">
+                    <h1>exit settings</h1>
+                </button>
+            </div>
+            <div>
+                <button class="settingsButton">
+                    <h1>save settings</h1>
+                </button>
+            </div>
+        </div>
+        <div>
+            <div>
+                <button class="settingsButton">
+                    <h1>color</h1>
+                </button>
+            </div>
+            <div>
+                <button class="settingsButton">
+                    <h1>mouse pointer</h1>
+                </button>
+            </div>
+            <div>
+                <button class="settingsButton">
+                    <h1>change name</h1>
+                </button>
+            </div>
+            <div>
+                <button class="settingsButton">
+                    <h1>change password</h1>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="gameDiv">
+        <div id="gameDivTitle">
+            <h1 id="scoreAmount">0</h1>
+        </div>
+        <div id="gameDivButton">
+            <button id="gameButton"></button>
+        </div>
+    </div>
+    <div id="upgradeDiv">
+        <div>
+            <button id="smallShop">
+                <h1 id="smallShopCost">20</h1>
+                small shop
+                <h1 id="smallShopAmount">0</h1>
+            </button>
+        </div>
+        <div>
+            <button id="bigShop">
+                <h1 id="bigShopCost">100</h1>
+                big Shop
+                <h1 id="bigShopAmount">0</h1>
+            </button>
+        </div>
+        <div>
+            <button id="smallBank">
+                <h1 id="smallBankCost">500</h1>
+                Small bank
+                <h1 id="smallBankAmount">0</h1>
+            </button>
+        </div>
+    </div>
+    <div id="aboutDiv">
+        <div>
+            <div>
+                <button id="exitAbout">
+                    <h1>Exit</h1>
+                </button>
+            </div>
+            <div>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
