@@ -14,4 +14,5 @@ function checkUserValidtion()
     }
 }
 
-setInterval(checkUserValidtion, 1); // check user validation every 100 milliseconds
+// Validate once on page load instead of tight interval
+document.addEventListener('DOMContentLoaded', checkUserValidtion);

@@ -13,15 +13,20 @@ const ShowPasswordCheckbox = document.getElementById("log-in-show-password-butto
 // Function to handle login process
 function LogIn() 
 {
-    let storedUsername = localStorage.getItem('username'); // get stored username from local storage
-    let storedPassword = localStorage.getItem('password'); // get stored password from local storage
     let inputUsername = LogInInputUsername.value.trim(); // capture and trim username input
     let inputPassword = LogInInputPassword.value.trim(); // capture and trim password input
 
-    if (inputUsername === storedUsername && inputPassword === storedPassword) // check if input matches stored credentials
+    const usersRaw = localStorage.getItem('users');
+    const users = usersRaw ? JSON.parse(usersRaw) : [];
+
+    const foundUser = users.find(u => u.username === inputUsername && u.password === inputPassword);
+
+    if (foundUser) // check if input matches stored user
     {
         alert('Login successful!'); // alert for successful login
-        sessionStorage.setItem('isLoggedIn', 'true'); // set session storage item to indicate user is logged in
+        sessionStorage.setItem('isLoggedIn', 'true'); // indicate user is logged in
+        sessionStorage.setItem('userId', String(foundUser.id));
+        sessionStorage.setItem('username', foundUser.username);
         setTimeout(() => {
             window.location.href = 'game.html'; // Redirect to game page after login
         }, 500);

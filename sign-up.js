@@ -22,16 +22,37 @@ function SignUp()
     {
         alert('Username and password cannot be empty.');
         isUsernameAndPasswordEmpty = true; // set variable to true if either field is empty
-        return; // rerurn early if either field is empty
+        return; // return early if either field is empty
     };
     if (!isUsernameAndPasswordEmpty) // check if username and password are not empty
     {
-        localStorage.setItem('username', username); // store username in local storage
-        localStorage.setItem('password', password); // store passowrd in local storage
+        const usersRaw = localStorage.getItem('users');
+        const users = usersRaw ? JSON.parse(usersRaw) : []; // load existing users or start empty
+        const nextIdRaw = localStorage.getItem('nextUserId');
+        const nextUserId = nextIdRaw ? parseInt(nextIdRaw, 10) : 1; // start IDs from 1
+
+        // Prevent duplicate usernames
+        const usernameExists = users.some(u => u.username === username);
+        if (usernameExists)
+        {
+            alert('Username already exists. Please choose another.');
+            return;
+        }
+
+        const newUser = { id: nextUserId, username, password };
+        users.push(newUser);
+
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('nextUserId', String(nextUserId + 1));
+
+        // Mark session as logged in for this user
+        sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('userId', String(newUser.id));
+        sessionStorage.setItem('username', newUser.username);
+
         alert('Sign-up successful!'); // alert for successful sign-up
         setTimeout(() => {
             window.location.href = 'game.html'; // Redirect to game page after sign-up
-            sessionStorage.setItem('isLoggedIn', 'true'); // set session storage item to indicate user is logged in
         }, 500);
     };
 };
@@ -54,7 +75,7 @@ function TogglePasswordVisibility()
 // Function to navigate to login page
 function GoToLoginPage()
 {
-    setInterval(() => {
+    setTimeout(() => {
         window.location.href = 'login.html'; // Redirect to login page
     }, 500);
 };
